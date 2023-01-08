@@ -1,8 +1,11 @@
 import aes256 from "aes256";
 import fs from "fs";
 import { exec } from "child_process";
+import "dotenv/config";
 
 let key;
+
+const NFT_STORAGE_KEY = process.env.NFT_STORAGE_KEY;
 
 function toJson(data) {
   let dnow = new Date();
