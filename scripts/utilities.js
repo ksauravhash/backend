@@ -13,9 +13,9 @@ function toJson(data) {
 
   const { phone, dob } = data;
   key =
-    phone.substring(phone.length - 1 - 3, phone.length) +
-    dob.substring(0, 4) +
-    phone.substring(0, 4);
+    phone.substring(data.phone.length - 1 - 3, data.phone.length) +
+    data.dob.substring(0, 4) +
+    data.phone.substring(0, 4);
   data.doi = doi;
   return jsonData;
 }

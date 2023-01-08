@@ -1,7 +1,12 @@
-import bodyParser, { json } from "body-parser";
+import bodyParser from "body-parser";
 import express from "express";
 import "dotenv/config";
-import { toJson, toEncryptedKey, toCarFile } from "./scripts/utilities";
+import {
+  toJson,
+  toEncryptedKey,
+  toCarFile,
+  storeNFT,
+} from "./scripts/utilities.js";
 
 const app = express();
 
@@ -22,13 +27,19 @@ app.get("/", (req, res) => {
 
 app.post("/reg", async (req, res) => {
   try {
-    let jsondata = toJson(req.data);
+    let jsondata = toJson(req.body);
     toEncryptedKey(jsondata);
     toCarFile();
+    let data = await storeNFT();
+    res.render("confirmed", {
+      data: {
+        info: `Your file is at ${data}`,
+      },
+    });
   } catch (err) {
     console.log(err);
   }
-  res.render("confirmed");
+  res.render("confirmed", "Failed");
 });
 
 app.listen(process.env.PORT, () => {
