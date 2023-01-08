@@ -12,3 +12,16 @@ Problem Statement: Creating an NFT-based Driving License System for a Decentrali
 Team members:
 [Soumyajit Kolay](https://github.com/c43-sar)
 [Saurav Kumar](https://github.com/ksauravhash)
+
+## Run
+
+```npm install```
+Or
+```yarn```
+
+Then
+
+```node index```
+
+
+Additionally you should have PORT and NFT_STORAGE_KEY in your .env file
