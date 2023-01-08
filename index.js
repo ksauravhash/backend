@@ -39,7 +39,7 @@ app.post("/reg", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  res.render("confirmed", "Failed");
+  res.render("confirmed");
 });
 
 app.listen(process.env.PORT, () => {
